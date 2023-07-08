@@ -18,5 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/posts/{id}', [PostsController::class, 'show']);
-Route::get('/posts/{id}', PostsController::class);
+Route::get('/posts/{id}', [PostsController::class, 'show']);
+
+// メソッドが一つしかなくてinvokeを利用する場合
+// Route::get('/posts/{id}', PostsController::class);

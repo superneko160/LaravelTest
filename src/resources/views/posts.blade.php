@@ -6,7 +6,8 @@
     <title>POSTS</title>
 </head>
 <body>
-    <h1>{{ $id }}番目の記事</h1>
-    <p>{{ $today }}</p>
+    <p>{{ $post->article }}</p>
+    <p>更新日時：{{ $post->update_time }}</p>
+    <p>現在時刻：{{ $today }}</p>
 </body>
 </html>
