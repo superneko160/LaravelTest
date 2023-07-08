@@ -1,6 +1,6 @@
 # LaravelTest
 
-#Versions
+## Versions
 
 ```
 $ php -v
@@ -21,18 +21,18 @@ $ php artisan -V
 Laravel Framework 10.14.1
 ```
 
-# Build and Run
-
-```
-docker build .
-```
+## Build and Run
 
 ```
 $ cd LaravelTest
+$ docker build .
+```
+
+```
 $ docker-compose up -d
 ```
 
-# Access
+## Access
 
 ```
 http://localhost:8080
