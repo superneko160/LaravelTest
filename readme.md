@@ -1,87 +1,56 @@
 # LaravelTest
 
-## Versions
-
-```
-$ php -v
-PHP 8.1.20
-```
-```
-$ composer -V
-Composer version 2.2.21
-```
-
-```
-$ mysql -V
-mysql  Ver 8.0.32 for Linux on x86_64
-```
-
-```
-$ php artisan -V
-Laravel Framework 10.14.1
-```
-
 ## Build and Run
 
-```
+```sh
 $ cd LaravelTest
-$ docker build .
+$ docker-compose build
 ```
 
-```
+```sh
 $ docker-compose up -d
+```
+
+### Migration and Seeding
+
+```sh
+$ cp .env.example .env
+$ docker-compose exec app bash
+php artisan migrate
+php artisan db:seed
+```
+
+## Container with Bash
+
+```sh
+$ docker-compose exec app bash
+$ docker-compose exec db bash
+```
+
+## Versions
+
+```sh
+$ php -v
+PHP 8.3.29
+
+$ composer -v
+Composer version 2.9.2
+
+$ mysql --version
+mysql  Ver 8.4.7
+
+$ php artisan -v
+Laravel Framework 12.44.0
+
+$ node -v
+v24.12.0
+
+$ npm -v
+11.6.2
 ```
 
 ## Access
 
 ```
 http://localhost:8080
-```
-
-## Create Table and insert dummy data
-
-```
-$ docker-compose exec db bash
-# mysql -u $MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE
-```
-
-```
-mysql> select database();
-+------------+
-| database() |
-+------------+
-| laravel    |
-+------------+
-1 row in set (0.01 sec)
-```
-
-```
-CREATE TABLE IF NOT EXISTS laravel.posts(
-  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `user_id` INT NOT NULL,
-  `article` TEXT NULL DEFAULT NULL,
-  `update_time` DATETIME NOT NULL
-);
-```
-
-```
-INSERT INTO laravel.posts (
-    user_id,
-    article,
-    update_time
-) VALUES(
-    204,
-    'foobar',
-    '2023-07-08 22:14:15'
-);
-
-INSERT INTO laravel.posts (
-    user_id,
-    article,
-    update_time
-) VALUES(
-    11,
-    'Hello,World!',
-    '2023-07-08 23:15:32'
-);
 ```
